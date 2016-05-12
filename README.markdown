@@ -1,23 +1,12 @@
 # RestSharp - Simple .NET REST Client
 
-### [Official Site/Blog][1] - [@RestSharp][2]  
-### Please use the [Google Group][3] for feature requests and troubleshooting usage.
-### License: Apache License 2.0  
+## This is a fork of [RestSharp-for-unity3d](https://github.com/Cratesmith/RestSharp-for-unity3d)
 
-### Features
+The fork was required since the original project marked itself as needing .NET 3.5 or better.  This
+fork simply adjusts that requirement, it doesn't appear the library actually requires anything that
+the 3.5 revision of .NET introduced.
 
-* Supports .NET 3.5+, Silverlight 4, Windows Phone 7, Mono, MonoTouch, Mono for Android
-* Easy installation using [NuGet](http://nuget.org/packages/RestSharp) for most .NET flavors
-* Automatic XML and JSON deserialization
-* Supports custom serialization and deserialization via ISerializer and IDeserializer
-* Fuzzy element name matching ('product_id' in XML/JSON will match C# property named 'ProductId')
-* Automatic detection of type of content returned
-* GET, POST, PUT, HEAD, OPTIONS, DELETE supported
-* Other non-standard HTTP methods also supported
-* oAuth 1, oAuth 2, Basic, NTLM and Parameter-based Authenticators included
-* Supports custom authentication schemes via IAuthenticator
-* Multi-part form/file uploads
-* T4 Helper to generate C# classes from an XML document
+## Example:
 
 ```csharp
 var client = new RestClient("http://example.com");
@@ -64,7 +53,3 @@ var asyncHandle = client.ExecuteAsync<Person>(request, response => {
 // abort the request on demand
 asyncHandle.Abort();
 ```
- 
-  [1]: http://restsharp.org
-  [2]: http://twitter.com/RestSharp
-  [3]: http://groups.google.com/group/RestSharp
