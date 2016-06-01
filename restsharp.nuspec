@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
 	<metadata>
-		<id>RestSharp</id>
-		<version>104.1</version>
-		<authors>John Sheehan, RestSharp Community</authors>
-		<owners>John Sheehan</owners>
+		<id>RestSharp-Unity-NET-2.0</id>
+		<version>105.0</version>
+		<authors>LlamaZOO</authors>
+		<owners>LlamaZOO</owners>
 		<description>Simple REST and HTTP API Client</description>
 		<language>en-US</language>
-		<projectUrl>http://restsharp.org</projectUrl>
-		<licenseUrl>https://github.com/restsharp/RestSharp/blob/master/LICENSE.txt</licenseUrl>
+		<projectUrl>https://github.com/llamazoo/RestSharp-for-unity3d</projectUrl>
+		<licenseUrl>https://github.com/llamazoo/RestSharp-for-unity3d/blob/master/LICENSE.txt</licenseUrl>
 		<iconUrl>http://dl.dropbox.com/u/1827/restsharp100.png</iconUrl>
 		<tags>REST HTTP API JSON XML</tags>
 		<releaseNotes>
 			<![CDATA[
-			For full release notes see https://github.com/restsharp/RestSharp/blob/master/releasenotes.markdown
+			For full release notes see https://github.com/llamazoo/RestSharp-for-unity3d/blob/master/releasenotes.markdown
 			]]>
 		</releaseNotes>
 	</metadata>
+	<files>
+    <file src="RestSharp/bin/Release/*.dll" target="lib/net20" />
+  </files>	
 </package>

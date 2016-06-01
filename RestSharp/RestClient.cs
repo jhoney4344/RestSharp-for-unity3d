@@ -459,31 +459,5 @@ namespace RestSharp
 
 			return restResponse;
 		}
-
-		private IRestResponse<T> Deserialize<T>(IRestRequest request, IRestResponse raw)
-		{
-			request.OnBeforeDeserialization(raw);
-
-			IDeserializer handler = GetHandler(raw.ContentType);
-			handler.RootElement = request.RootElement;
-			handler.DateFormat = request.DateFormat;
-			handler.Namespace = request.XmlNamespace;
-
-			IRestResponse<T> response = new RestResponse<T>();
-			try
-			{
-			    response = raw.toAsyncResponse<T>();
-				response.Data = handler.Deserialize<T>(raw);
-				response.Request = request;
-			}
-			catch (Exception ex)
-			{
-				response.ResponseStatus = ResponseStatus.Error;
-				response.ErrorMessage = ex.Message;
-				response.ErrorException = ex;
-			}
-
-			return response;
-		}
 	}
 }

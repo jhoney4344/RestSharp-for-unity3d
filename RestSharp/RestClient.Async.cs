@@ -106,51 +106,5 @@ namespace RestSharp
 			var restResponse = ConvertToRestResponse(request, httpResponse);
 			callback(restResponse, asyncHandle);
 		}
-
-		/// <summary>
-		/// Executes the request and callback asynchronously, authenticating if needed
-		/// </summary>
-		/// <typeparam name="T">Target deserialization type</typeparam>
-		/// <param name="request">Request to be executed</param>
-		/// <param name="callback">Callback function to be executed upon completion</param>
-		public virtual RestRequestAsyncHandle ExecuteAsync<T>(IRestRequest request, Action<IRestResponse<T>, RestRequestAsyncHandle> callback)
-		{
-			return ExecuteAsync(request, (response, asyncHandle) => DeserializeResponse(request, callback, response, asyncHandle));
-		}
-
-		/// <summary>
-		/// Executes a GET-style request and callback asynchronously, authenticating if needed
-		/// </summary>
-		/// <typeparam name="T">Target deserialization type</typeparam>
-		/// <param name="request">Request to be executed</param>
-		/// <param name="callback">Callback function to be executed upon completion</param>
-		/// <param name="httpMethod">The HTTP method to execute</param>
-		public virtual RestRequestAsyncHandle ExecuteAsyncGet<T>(IRestRequest request, Action<IRestResponse<T>, RestRequestAsyncHandle> callback, string httpMethod)
-		{
-			return ExecuteAsyncGet(request, (response, asyncHandle) => DeserializeResponse(request, callback, response, asyncHandle), httpMethod);
-		}
-
-		/// <summary>
-		/// Executes a POST-style request and callback asynchronously, authenticating if needed
-		/// </summary>
-		/// <typeparam name="T">Target deserialization type</typeparam>
-		/// <param name="request">Request to be executed</param>
-		/// <param name="callback">Callback function to be executed upon completion</param>
-		/// <param name="httpMethod">The HTTP method to execute</param>
-		public virtual RestRequestAsyncHandle ExecuteAsyncPost<T>(IRestRequest request, Action<IRestResponse<T>, RestRequestAsyncHandle> callback, string httpMethod)
-		{
-			return ExecuteAsyncPost(request, (response, asyncHandle) => DeserializeResponse(request, callback, response, asyncHandle), httpMethod);
-		}
-
-		private void DeserializeResponse<T>(IRestRequest request, Action<IRestResponse<T>, RestRequestAsyncHandle> callback, IRestResponse response, RestRequestAsyncHandle asyncHandle)
-		{
-			IRestResponse<T> restResponse = response as RestResponse<T>;
-			if (response.ResponseStatus != ResponseStatus.Aborted)
-			{
-				restResponse = Deserialize<T>(request, response);
-			}
-
-			callback(restResponse, asyncHandle);
-		}
 	}
 }

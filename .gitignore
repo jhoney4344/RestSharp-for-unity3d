@@ -36,3 +36,7 @@ Download/
 #Ignore files from MonoDevelop
 *.pidb
 *.userprefs
+RestSharp-Unity-NET-2.0.104.2.nupkg
+RestSharp-Unity-NET-2.0.105.0.nupkg
+lib/net20/RestSharp.dll
+lib/net20/RestSharp.dll.mdb

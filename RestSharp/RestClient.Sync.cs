@@ -88,27 +88,6 @@ namespace RestSharp
 		{
 			return http.AsPost(method);
 		}
-
-	    /// <summary>
-		/// Executes the specified request and deserializes the response content using the appropriate content handler
-		/// </summary>
-		/// <typeparam name="T">Target deserialization type</typeparam>
-		/// <param name="request">Request to execute</param>
-		/// <returns>RestResponse[[T]] with deserialized data in Data property</returns>
-		public virtual IRestResponse<T> Execute<T>(IRestRequest request) where T : new()
-		{
-			return Deserialize<T>(request, Execute(request));
-		}
-
-		public IRestResponse<T> ExecuteAsGet<T>(IRestRequest request, string httpMethod) where T : new()
-		{
-			return Deserialize<T>(request, ExecuteAsGet(request, httpMethod));
-		}
-
-		public IRestResponse<T> ExecuteAsPost<T>(IRestRequest request, string httpMethod) where T : new()
-		{
-			return Deserialize<T>(request, ExecuteAsPost(request, httpMethod));
-		}
 	}
 }
 #endif

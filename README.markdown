@@ -6,6 +6,25 @@ The fork was required since the original project marked itself as needing .NET 3
 fork simply adjusts that requirement, it doesn't appear the library actually requires anything that
 the 3.5 revision of .NET introduced.
 
+Additionally, this library has been refactored to provide iOS support.  Please see the release
+notes for details on what was required to do this.
+
+## NuGet
+
+To build the NuGet package execute the following _after_ a build in the root directory of the project
+
+	nuget pack restsharp.nuspec
+
+In order to publish the package to the central NuGet repository you must first export the account
+API key via:
+
+	nuget setApiKey <API KEY>
+
+And then push the package:
+
+	nuget push <Package Name>
+
+
 ## Example:
 
 ```csharp

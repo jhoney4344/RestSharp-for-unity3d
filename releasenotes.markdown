@@ -1,5 +1,15 @@
 # RestSharp Release Notes
 
+## 105.0
+
+* iOS target support.  
+  * Removed the library's async execution path
+  * Removed the library's ability to deserialize to generic concrete types
+
+## 104.2
+
+* Target .NET 2.0
+
 ## 104.1
 
 * Fixed bug where ExecuteAsync sometimes doesn't send data
