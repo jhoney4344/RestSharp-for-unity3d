@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>RestSharp-Unity-NET-2.0</id>
-		<version>105.0</version>
+		<version>105.1</version>
 		<authors>LlamaZOO</authors>
 		<owners>LlamaZOO</owners>
 		<description>Simple REST and HTTP API Client</description>
