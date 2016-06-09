@@ -52,6 +52,44 @@ namespace RestSharp.Deserializers
 			return target;
 		}
 
+		/*
+		 * JDB June 9, 2016
+		 * Added a deserialize which works against just
+		 * a string.
+		 */
+		public T Deserialize<T>( string content )
+		{
+			var target = Activator.CreateInstance<T>();
+
+			if ( target is IList )
+			{
+				var objType = target.GetType();
+
+				if ( RootElement.HasValue() )
+				{
+					var root = FindRoot(content);
+					target = (T)BuildList(objType,root);
+				}
+				else
+				{
+					var data = SimpleJson.DeserializeObject(content);
+					target = (T)BuildList(objType,data);
+				}
+			}
+			else if ( target is IDictionary )
+			{
+				var root = FindRoot(content);
+				target = (T)BuildDictionary(target.GetType(),root);
+			}
+			else
+			{
+				var root = FindRoot(content);
+				Map(target, (IDictionary<string, object>)root);
+			}
+
+			return target;
+		}
+
 		private object FindRoot(string content)
 		{
 			var data = (IDictionary<string, object>)SimpleJson.DeserializeObject(content);
