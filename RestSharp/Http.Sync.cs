@@ -221,8 +221,8 @@ namespace RestSharp
 
 			if(ClientCertificates != null)
 			{
-				webRequest.ClientCertificates = ClientCertificates;
-			}
+                webRequest.ClientCertificates.AddRange(ClientCertificates);
+            }
 
 			if(UserAgent.HasValue())
 			{
